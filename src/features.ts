@@ -1,20 +1,19 @@
-/* eslint-disable no-unused-vars */
-let period = 60
+const period = 60
 const baseUrl = 'http://localhost'
 
-let firstName = 'Ihor'
-let account = {
+const firstName = 'Ihor'
+const account = {
   firstName,
   getName() {
     return this.firstName
   }
 }
 
-let person = {...account}
-let dates = {...[11, 12, 13]}
+const person = {...account}
+const dates = {...[11, 12, 13]}
 
 let {firstName: myName} = person
-let [firstDate] = dates
+const [firstDate] = dates
 
 for (let date of dates) {
   console.log(date)
@@ -32,3 +31,21 @@ function userMessage([start, end]: TemplateStringsArray, { firstName: name }: ty
 }
 
 console.log(userMessage`Good day, ${person} !!`)
+
+/// reference lib="esnext"
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function* getItemsReallySlow<T>(items: Iterable<T>): AsyncIterableIterator<T> {
+  for (const item of items) {
+    await sleep(1000)
+    yield item
+  }
+}
+
+export async function speakSloth(items: String[]) {
+  for await (const item of getItemsReallySlow(items)) {
+    console.log(item)
+  }
+}

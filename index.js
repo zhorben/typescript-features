@@ -1,20 +1,23 @@
 "use strict";
-Object.defineProperty(window, "MySweetApp", { value: "v1.0.0", writable: false });
+Object.defineProperty(window, 'MySweetApp', { value: 'v1.0.0', writable: false });
 function deliveryMethod() {
     // TODO make some calculation
-    return "overnight";
+    return 'overnight';
 }
 function shipWeight() {
     const el = document.getElementById('weight');
-    if (!el)
+    if (!el) {
         return 0;
-    return parseInt(el.innerHTML);
+    }
+    return parseInt(el.innerHTML, 0);
 }
 function sendUpdates(emailAddr) {
     function sendEmail(addr) {
-        console.log(`Shipping to ${addr} via ${deliveryMethod() || "standard"} delivery`);
+        // tslint:disable-next-line: no-console
+        console.log(`Shipping to ${addr} via ${deliveryMethod() || 'standard'} delivery`);
         if (shipWeight() > 100) {
-            console.log("WARNING: Oversize package");
+            // tslint:disable-next-line: no-console
+            console.log('WARNING: Oversize package');
         }
     }
     if (Array.isArray(emailAddr)) {

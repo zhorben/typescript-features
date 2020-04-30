@@ -1,32 +1,36 @@
-Object.defineProperty(window, "MySweetApp", {value: "v1.0.0", writable: false});
+Object.defineProperty(window, 'MySweetApp', {value: 'v1.0.0', writable: false})
 
 function deliveryMethod() {
     // TODO make some calculation
-    return "overnight";
+    return 'overnight'
 }
 
 function shipWeight() {
   const el: HTMLElement | null = document.getElementById('weight')
 
-  if (!el) return 0
+  if (!el) {
+    return 0
+  }
 
-  return parseInt(el.innerHTML);
+  return parseInt(el.innerHTML, 0)
 }
 
 function sendUpdates(emailAddr: string | string[]) { // string or string array
     function sendEmail(addr: string) {
-        console.log(`Shipping to ${addr} via ${deliveryMethod() || "standard"} delivery`);
+        // tslint:disable-next-line: no-console
+        console.log(`Shipping to ${addr} via ${deliveryMethod() || 'standard'} delivery`)
         if (shipWeight() > 100) {
-            console.log("WARNING: Oversize package");
+            // tslint:disable-next-line: no-console
+            console.log('WARNING: Oversize package')
         }
     }
 
     if (Array.isArray(emailAddr)) {
         emailAddr.forEach((val) => {
-            sendEmail(val.trim());
-        });
+            sendEmail(val.trim())
+        })
     } else {
-        sendEmail(emailAddr.trim());
+        sendEmail(emailAddr.trim())
     }
 }
 
