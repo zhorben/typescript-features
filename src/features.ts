@@ -1,36 +1,36 @@
-const period = 60
-const baseUrl = 'http://localhost'
+// const period = 60
+// const baseUrl = 'http://localhost'
 
-const firstName = 'Ihor'
-const account = {
-  firstName,
-  getName() {
-    return this.firstName
-  }
-}
+// const firstName = 'Ihor'
+// const account = {
+//   firstName,
+//   getName() {
+//     return this.firstName
+//   }
+// }
 
-const person = {...account}
-const dates = {...[11, 12, 13]}
+// const person = {...account}
+// const dates = {...[11, 12, 13]}
 
-let {firstName: myName} = person
-const [firstDate] = dates
+// let {firstName: myName} = person
+// const [firstDate] = dates
 
-for (let date of dates) {
-  console.log(date)
-}
+// for (let date of dates) {
+//   console.log(date)
+// }
 
-let sum = (a: number, b: number) => a + b
+// let sum = (a: number, b: number) => a + b
 
-class Point {
-  x!: number;
-  y!: number;
-}
+// class Point {
+//   x!: number;
+//   y!: number;
+// }
 
-function userMessage([start, end]: TemplateStringsArray, { firstName: name }: typeof account) {
-  return `${start}${name}${end}`
-}
+// function userMessage([start, end]: TemplateStringsArray, { firstName: name }: typeof account) {
+//   return `${start}${name}${end}`
+// }
 
-console.log(userMessage`Good day, ${person} !!`)
+// console.log(userMessage`Good day, ${person} !!`)
 
 /// reference lib="esnext"
 function sleep(ms: number) {
