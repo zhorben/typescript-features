@@ -11,4 +11,4 @@
 | Command | Description |
 | --- | --- |
 | npx tsc --init | init ts config |
-| ts-node | npx ts-node --project tsconfig.json src/index.ts |
+| npx ts-node --project tsconfig.json src/index.ts | run ts code in terminal |
